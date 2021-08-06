@@ -34,7 +34,7 @@ To achieve this goal, several issues must be resolved:
 * Produce data to Kafka.  
 ##### limitation
 * To achieve an end to end Exactly Once semantic, the input data source must be deduplicated.
-* To achieve an end to end Exactly Once semantic, the input data source format must be able to handle s3 eventually consistency issue.
+* In case source data stored on s3 - to achieve an end to end Exactly Once semantic, the input data source format must be able to handle eventually consistency issue.
 * Any Update will be treated as a new record.
 * Only one application must produce data to topic at same time.
 In case fail, no one else must not produce data to this topic, until retry attempt will be succeed
