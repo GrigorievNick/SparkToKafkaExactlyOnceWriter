@@ -4,8 +4,7 @@ Write to kafka from Spark with exactly-once delivery guarantee.
 
 ##### Solution
 
-Kafka is a distributed log. Kafka grant that every new message produced to Kafka partition will have unique and **
-sequential** id.\
+Kafka is a distributed log. Kafka grant that every new message produced to Kafka partition will have unique and **sequential** id.\
 Kafka offsets can be used as idempotent keys. In case every unique message will always be produced in the same Kafka
 partition in the same order. \
 So it will be possible: Pre calculates Kafka offset and drops all records which already in Kafka. \
