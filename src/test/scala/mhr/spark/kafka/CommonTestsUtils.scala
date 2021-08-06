@@ -19,7 +19,7 @@ trait CommonTestsUtils {
     .map(List("Gitlab", getenv("CI_PROJECT_PATH"), getenv("CI_COMMIT_REF_NAME"), _).mkString("_"))
     .getOrElse(getenv("USER"))
 
-  protected val testKafkaUrl = "kafka:9092,kafka:9092,kafka:9092"
+  protected val testKafkaUrl = "localhost:9093"
 
   protected def cleanseKafkaName(name: String): String = name.replaceAll("_", "-").replaceAll("/", "-")
 
@@ -31,7 +31,7 @@ trait CommonTestsUtils {
         admin.deleteTopics(List(topic).asJavaCollection).all().get(1, TimeUnit.MINUTES)
         while (topics.contains(topic)) Thread.sleep(500)
       }
-      admin.createTopics(List(new NewTopic(topic, 2, 3.toShort)).asJavaCollection)
+      admin.createTopics(List(new NewTopic(topic, 2, 1.toShort)).asJavaCollection)
         .all()
         .get(1, TimeUnit.MINUTES)
     } finally admin.close()
