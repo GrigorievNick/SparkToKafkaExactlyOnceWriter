@@ -2,6 +2,9 @@
 
 Write to kafka from Spark with exactly-once delivery guarantee.
 
+##### how to run tests
+`docker-compose up -d` and `mvn clean install`
+
 ##### Solution
 
 Kafka is a distributed log. Kafka grant that every new message produced to Kafka partition will have unique and **sequential** id.\
