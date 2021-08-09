@@ -50,3 +50,4 @@ To achieve this goal, several issues must be resolved:
 * Any Update will be treated as a new record.
 * Only one application must produce data to topic at same time. In case fail, no one else must not produce data to this
   topic, until retry attempt will be succeed
+* Do now work with speculative execution, becasue speculative execution can run same task in parralel. And this will lead to offset seq corruption.
