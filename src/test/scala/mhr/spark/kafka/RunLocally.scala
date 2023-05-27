@@ -11,7 +11,9 @@ trait RunLocally extends CommonTestsUtils {
 
   override def runUploadToKafkaApp(config: Config): Unit = {
     val appConfig = config.as[ApplicationConfig]("stream-uploading")
-    val sparkConf = new SparkConf().setAppName("it-files-to-kafka").setMaster("local[*]")
+    val sparkConf = new SparkConf()
+      .setAppName("it-files-to-kafka")
+      .setMaster("local[*]")
     IngestionToKafka.runApp(appConfig, sparkConf)
   }
 
